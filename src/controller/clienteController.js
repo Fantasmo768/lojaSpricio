@@ -3,7 +3,24 @@ const { clienteModel } = require("../model/clienteModel");
 const clienteController = {
     buscarTodosClientes: async (req, res) => {
         try {
-            const clientes = await clienteModel.selecionarTodosClientes();
+
+            const id_cliente = req.query.id_cliente;
+
+            const idNum = Number(id_cliente)
+
+            let clientes;
+
+            if (!id_cliente) {
+                clientes = await clienteModel.selecionarTodosClientes();
+            } else {
+                if (!Number.isInteger(idNum)) {
+                    return res.status(405).json({ message: "O id não é válido" });
+                }
+                clientes = await clienteModel.selecionarClienteId(id_cliente);
+                if (clientes.length === 0) {
+                    return res.status(404).json({ message: "Cliente não encontrado" });
+                }
+            }
 
             if (clientes.length === 0) {
                 return res.status(200).json({ message: "Nenhum cliente cadastrado na tabela" });
@@ -17,29 +34,29 @@ const clienteController = {
         }
     },
 
-    selecionarPorId: async (req, res) => {
-        try {
-            const id_cliente = req.params.id_cliente;
+    // selecionarPorId: async (req, res) => {
+    //     try {
+    //         const id_cliente = req.query.id_cliente;
 
-            const idNum = Number(id_cliente);
+    //         const idNum = Number(id_cliente);
 
-            if (!Number.isInteger(idNum)) {
-                return res.status(405).json({ message: "O id não é válido" })
-            }
+    //         if (!Number.isInteger(idNum)) {
+    //             return res.status(405).json({ message: "O id não é válido" })
+    //         }
 
-            const clienteConsultado = await clienteModel.selecionarClienteId(id_cliente);
+    //         const clienteConsultado = await clienteModel.selecionarClienteId(id_cliente);
 
-            if (clienteConsultado.length === 0) {
-                return res.status(404).json({ message: "Cliente não ecnontrado" });
-            }
+    //         if (clienteConsultado.length === 0) {
+    //             return res.status(404).json({ message: "Cliente não ecnontrado" });
+    //         }
 
-            return res.status(200).json({ message: "Cliente encontrado", clienteConsultado })
+    //         return res.status(200).json({ message: "Cliente encontrado", clienteConsultado })
 
-        } catch (error) {
-            console.error(error);
-            return res.status(500).json({ errorMessage: "Erro interno do servidor", errorMessage: error.message });
-        }
-    },
+    //     } catch (error) {
+    //         console.error(error);
+    //         return res.status(500).json({ errorMessage: "Erro interno do servidor", errorMessage: error.message });
+    //     }
+    // },
 
     criarCliente: async (req, res) => {
 
