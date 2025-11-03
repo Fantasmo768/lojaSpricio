@@ -1,0 +1,293 @@
+type: collection.insomnia.rest/5.0
+name: LojaEspricio
+meta:
+  id: wrk_3fd7bb2dc4c34172b89e030ec312fd96
+  created: 1761583580376
+  modified: 1761583580376
+  description: ""
+collection:
+  - name: Produtos
+    meta:
+      id: fld_c84ae078938b4db29ff336f281d9c009
+      created: 1761583875153
+      modified: 1761583875153
+      sortKey: -1761583875153
+      description: ""
+    children:
+      - url: http://localhost:8081/produtos/adicionar
+        name: adicionarProduto
+        meta:
+          id: req_d43e0d9eecca4340b77c2c1c5135cc56
+          created: 1761583587850
+          modified: 1761588052546
+          isPrivate: false
+          description: ""
+          sortKey: -1761583884821
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"descricao": "Teclado",
+            	"valor": 100
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8081/produtos/1
+        name: selecionarProdutoID
+        meta:
+          id: req_e9bae707c67849339da9da0e2e35279a
+          created: 1761583589148
+          modified: 1761588024293
+          isPrivate: false
+          description: ""
+          sortKey: -1761583884896
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8081/produtos
+        name: selecionarTodosProdutos
+        meta:
+          id: req_1e63f44ef8044f4f892ed3a76af633fc
+          created: 1761583590361
+          modified: 1761588027714
+          isPrivate: false
+          description: ""
+          sortKey: -1761583884996
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8081/produtos/atualizar/31
+        name: atualizarProduto
+        meta:
+          id: req_43c847c3ee5f4e3cb47ff6fa0756fd12
+          created: 1761583643646
+          modified: 1761588128244
+          isPrivate: false
+          description: ""
+          sortKey: -1761583884796
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"descricao": "mouse",
+            	"valor": 50
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8081/produtos/excluir/31
+        name: deletarProduto
+        meta:
+          id: req_b26e8a9a51cf4241aea8eff6358ddda3
+          created: 1761583667442
+          modified: 1761588286694
+          isPrivate: false
+          description: ""
+          sortKey: -1761583884696
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Clientes
+    meta:
+      id: fld_e6ca378e3ed3445ba4229bd313e22dc3
+      created: 1761585613686
+      modified: 1761585613686
+      sortKey: -1761585613686
+      description: ""
+    children:
+      - url: http://localhost:8081/clientes
+        name: buscarTodosClientes
+        meta:
+          id: req_7450f2870488464ea972fb5c2e3615aa
+          created: 1761585616721
+          modified: 1762195407219
+          isPrivate: false
+          description: ""
+          sortKey: -1761585636823
+        method: GET
+        parameters:
+          - id: pair_84e4e9b76e3a4cf999993e8fa91d8a24
+            name: id_cliente
+            value: " 17"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8081/clientes/adicionar
+        name: adicionarCliente
+        meta:
+          id: req_adf293d8108443bc943264a02adaf054
+          created: 1761585636523
+          modified: 1761591981101
+          isPrivate: false
+          description: ""
+          sortKey: -1761585636748
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome_cliente": "João Maziero",
+            	"cpf_cliente": ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8081/clientes/1
+        name: buscarClienteID
+        meta:
+          id: req_6a5b1dcf2c74485284dc7fd866bb0301
+          created: 1761589812161
+          modified: 1761591979436
+          isPrivate: false
+          description: ""
+          sortKey: -1761585636773
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8081/clientes/atualizar/1
+        name: atualizarCliente
+        meta:
+          id: req_1f35084eced0481c863d425da6b7097e
+          created: 1761590521656
+          modified: 1761591548041
+          isPrivate: false
+          description: ""
+          sortKey: -1761585636723
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome_cliente": "João"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8081/clientes/deletar/10
+        name: deletarCliente
+        meta:
+          id: req_af37ec572e474392adc1a9930bdccd54
+          created: 1761591961058
+          modified: 1761592103593
+          isPrivate: false
+          description: ""
+          sortKey: -1761585632816
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_2822f9c5d84d1253d650a78ac793a83e39654a84
+    created: 1761583580388
+    modified: 1761583580388
+environments:
+  name: Base Environment
+  meta:
+    id: env_2822f9c5d84d1253d650a78ac793a83e39654a84
+    created: 1761583580384
+    modified: 1761583580384
+    isPrivate: false
